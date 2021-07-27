@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Algoritmia</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <h1>Ejercicio Algoritmia</h1>
+  <form id="miFormulario" onsubmit="return enviar_formulario(this)">
+    <div class="form-group">
+      <label >Email address</label>
+      <input type="number" name="numero" id="numero" class="form-control" min="1" max="103" required>
+      <small id="error" class="form-text text-danger"></small>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</body>
+<script>
+  function enviar_formulario(params) {
+    event.preventDefault();
+    var n = params.numero.value;
+    var area = 1;
+    if (n.length === 0 || n < 1 || n > 104) {
+      document.getElementById('error').innerHTML = 'El valor debe ser de 1 a 103';
+    }
+    while (n > 1) {
+      area += (n-1) *4;
+      n--;
+    }
+    alert('El area de ' + n + 'es ' + area);
+  }
+</script>
+</html>
